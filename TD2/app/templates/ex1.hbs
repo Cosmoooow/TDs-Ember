@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      {{multi-select elements=model.dispoItems selectedIds=model.dispoItemsIds_}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      {{#bs-button onClick=(action "arrow-alt-submit-button")}}Button{{/bs-button}}
+      {{#bs-button onClick=(action "submit")}}Button{{/bs-button}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      {{multi-select elements=model.includedItems}}
+    </div>
+  </div>
+</div>
+{{outlet}}
+
+

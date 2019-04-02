@@ -1,0 +1,12 @@
+{{!-- The following component displays Ember's default welcome message. --}}
+{{#bs-navbar type=dark backgroundColor=dark collapsed=collapsed onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
+  {{#navbar.content}}
+    {{#navbar.nav as |nav|}}
+      {{#nav.item}}{{#nav.link-to "client"}}Client{{/nav.link-to}}{{/nav.item}}
+      {{#nav.item}}{{#nav.link-to "client.details"}}Details{{/nav.link-to}}{{/nav.item}}
+    {{/navbar.nav}}
+  {{/navbar.content}}
+{{/bs-navbar}}
+<h1>Application TD0</h1>
+{{!-- Feel free to remove this! --}}
+{{outlet}}

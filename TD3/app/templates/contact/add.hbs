@@ -1,0 +1,15 @@
+{{#bs-navbar type=type backgroundColor="primary" collapsed=collapsed onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
+  <div class="navbar-header">
+    {{navbar.toggle}}
+    Ajouter
+  </div>
+{{/bs-navbar}}
+<form>
+	{{input value=model.nom placeholder="Nom"}}
+	{{input value=model.prenom placeholder="Prénom"}}
+	{{input value=model.email placeholder="Email"}}
+	<button {{action "addContact" model}} class="btn btn-success">
+		Valider
+	</button>
+</form>
+{{outlet}}

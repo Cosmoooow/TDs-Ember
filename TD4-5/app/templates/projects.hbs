@@ -1,0 +1,56 @@
+<div id="title" class="ui message">
+  <i class="ui icon table big"></i>
+  <div>
+    <h2>Projets</h2>
+    <h3>Administration de données</h3>
+  </div>
+</div>
+
+{{#link-to "projects.new" class="ui button orange"}}
+  Ajouter un projet...
+{{/link-to}}
+
+<table class="ui table">
+  <thead>
+  <tr>
+    <th class="three wide">Nom</th>
+    <th class="seven wide">Descriptif</th>
+    <th class="two wide">DateDébut</th>
+    <th class="two wide">DateFin</th>
+    <th class="two wide">Proprietaire</th>
+    <th class="two wide">Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  {{#each model as |pro|}}
+    <tr>
+      <td>
+        {{pro.name}}
+      </td>
+      <td>
+        {{pro.description}}
+      </td>
+      <td>
+        {{pro.startDate}}
+      </td>
+      <td>
+        {{pro.dueDate}}
+      </td>
+      <td>
+        {{pro.owner.identity}}
+      </td>
+      <td>
+        {{#link-to "projects.edit" pro class="ui icon circular button"}}
+          <i class="ui icon edit"></i>
+        {{/link-to}}
+        {{#link-to "projects.delete" pro class="ui icon circular button red"}}
+          <i class="ui icon delete"></i>
+        {{/link-to}}
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+
+{{outlet}}
