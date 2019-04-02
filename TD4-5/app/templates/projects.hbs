@@ -9,12 +9,12 @@
 {{#link-to "projects.new" class="ui button orange"}}
   Ajouter un projet...
 {{/link-to}}
-
-<table class="ui table">
+<!--
+<table class="ui sixteen wide inverted table">
   <thead>
   <tr>
     <th class="three wide">Nom</th>
-    <th class="seven wide">Descriptif</th>
+    <th class="five wide">Descriptif</th>
     <th class="two wide">DateDébut</th>
     <th class="two wide">DateFin</th>
     <th class="two wide">Proprietaire</th>
@@ -26,10 +26,10 @@
   {{#each model as |pro|}}
     <tr>
       <td>
-        {{pro.name}}
+
       </td>
       <td>
-        {{pro.description}}
+
       </td>
       <td>
         {{pro.startDate}}
@@ -41,7 +41,7 @@
         {{pro.owner.identity}}
       </td>
       <td>
-        {{#link-to "projects.edit" pro class="ui icon circular button"}}
+        {{#link-to "projects.edit" pro class="ui green circular icon button"}}
           <i class="ui icon edit"></i>
         {{/link-to}}
         {{#link-to "projects.delete" pro class="ui icon circular button red"}}
@@ -51,6 +51,29 @@
     </tr>
   {{/each}}
   </tbody>
-</table>
+</table> -->
 
+<table class="ui sixteen wide inverted table">
+{{#each model as |pro|}}
+  <tr>
+    <td class="one wide">
+      <i class="ui big white file icon"></i>
+    </td>
+    <td class="ten wide">
+      <div style="font-weight:bold">{{pro.name}}</div>
+      {{pro.description}}
+    </td>
+    <td class="five wide" style="text-align:right">
+      <div class="ui left labeled button" tabindex="0" style="position:">
+        <a class="ui basic right pointing label">
+          {{pro.owner.identity}}
+        </a>
+        {{#link-to "projects.edit" pro class="ui green button"}}
+        Modifier...
+        {{/link-to}}
+      </div>
+    </td>
+  </tr>
+{{/each}}
+</table>
 {{outlet}}
